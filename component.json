@@ -1,0 +1,205 @@
+{
+    "title": "Flinkster_API_NG",
+    "description": "This REST-API enables you to query for private transport sharing offers provided by companies and cities in Germany, Netherland and Austria. \nYou can search for informations about the rental stations (points or areas) where you can find the rentals by utilizing the /areas/ ressource. \nWith the help of the proximity search in the /bookingproposals/ URI you can request the availabilities of the rentalobjects for spontaneous or planed usage in the future. \n\nFeel free to browse through data by setting the parameter 'providernetwork' to the value: \n 1: Search for car sharing offers provided by the Flinkster platform (http://www.flinkster.de)\n2: Finding bike rental offers from Call a Bike (http://www.callabike.de) \n\nYou can find more details in the documentation section (Unfortunately only available in german language).\n\nHave lots of fun and we are lucky to take notice of your products or getting your feedback.",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/deutschebahn.com/flinkster/v1/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://api.deutschebahn.com/flinkster-api-ng/v1",
+                    "http://api.deutschebahn.com/flinkster-api-ng/v1",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "listAreas": {
+            "main": "./lib/actions/listAreas.js",
+            "title": "List Areas by Criteria.",
+            "description": "Search for areas (locations of rental objects) by criteria.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/listAreas.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getArea": {
+            "main": "./lib/actions/getArea.js",
+            "title": "Get area by UID.",
+            "description": "Search for a specific area by UID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getArea.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "listBookingProposals": {
+            "main": "./lib/actions/listBookingProposals.js",
+            "title": "Query for available RentalObjects of a specific view",
+            "description": "Here you can query all bookable Rental Objects with different Parameters (Time, Location,...)",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/listBookingProposals.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getIndex": {
+            "main": "./lib/actions/getIndex.js",
+            "title": "Show index.",
+            "description": "Show Service index.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getIndex.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "listCategories": {
+            "main": "./lib/actions/listCategories.js",
+            "title": "Lists all categories",
+            "description": "Search for categorie.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/listCategories.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getCategory": {
+            "main": "./lib/actions/getCategory.js",
+            "title": "Get a Category by UID",
+            "description": "Search for categorie.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getCategory.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getPrices": {
+            "main": "./lib/actions/getPrices.js",
+            "title": "Get information about the prices.",
+            "description": "Prices of a rental object by query params. The params depend on the price determination strategy of the provider network.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getPrices.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getRentalObject": {
+            "main": "./lib/actions/getRentalObject.js",
+            "title": "Get information about the RentalObject.",
+            "description": "Get information about the Rental Object.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getRentalObject.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getProviderNetwork": {
+            "main": "./lib/actions/getProviderNetwork.js",
+            "title": "Get information about the ProviderNetworkResources.",
+            "description": "Get information about the ProviderNetworkResources.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getProviderNetwork.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getProvider": {
+            "main": "./lib/actions/getProvider.js",
+            "title": "Get information about the ProviderResourceImpl.",
+            "description": "Get information about the ProviderResourcesCtrl.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getProvider.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

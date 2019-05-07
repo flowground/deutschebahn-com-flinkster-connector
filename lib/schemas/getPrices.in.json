@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "providernetworkUID": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

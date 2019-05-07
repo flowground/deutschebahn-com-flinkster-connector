@@ -1,0 +1,50 @@
+{
+    "type": "object",
+    "properties": {
+        "lat": {
+            "required": false,
+            "type": "number",
+            "format": "double"
+        },
+        "lon": {
+            "required": false,
+            "type": "number",
+            "format": "double"
+        },
+        "radius": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        },
+        "offset": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        },
+        "limit": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        },
+        "providernetwork": {
+            "required": false,
+            "type": "string"
+        },
+        "begin": {
+            "required": false,
+            "type": "string"
+        },
+        "end": {
+            "required": false,
+            "type": "string"
+        },
+        "expand": {
+            "required": false,
+            "type": "string"
+        },
+        "view": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

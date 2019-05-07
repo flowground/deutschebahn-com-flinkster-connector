@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "properties": {
+        "rentalObjectUID": {
+            "required": true,
+            "type": "string"
+        },
+        "providernetworkUID": {
+            "required": true,
+            "type": "string"
+        },
+        "expand": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "type": "object",
+    "properties": {
+        "areaUID": {
+            "required": true,
+            "type": "string"
+        },
+        "expand": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}
